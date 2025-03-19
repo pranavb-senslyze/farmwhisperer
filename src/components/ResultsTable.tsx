@@ -160,11 +160,11 @@ const ResultsTable: React.FC<ResultsTableProps> = ({
                   </th>
                   <th 
                     className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
-                    onClick={() => requestSort('land_owned')}
+                    onClick={() => requestSort('landOwned')}
                   >
                     <div className="flex items-center space-x-1">
                       <span>Land (acres)</span>
-                      {getSortIcon('land_owned')}
+                      {getSortIcon('landOwned')}
                     </div>
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -194,7 +194,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({
                       <div className="text-sm text-gray-500">{farmer.state}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">{farmer.land_owned}</div>
+                      <div className="text-sm text-gray-900">{farmer.landOwned}</div>
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex flex-wrap gap-1">
@@ -215,20 +215,20 @@ const ResultsTable: React.FC<ResultsTableProps> = ({
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                        farmer.irrigation_facility 
+                        farmer.irrigationFacility 
                           ? 'bg-green-100 text-green-800' 
                           : 'bg-gray-100 text-gray-800'
                       }`}>
-                        {farmer.irrigation_facility ? 'Yes' : 'No'}
+                        {farmer.irrigationFacility ? 'Yes' : 'No'}
                       </span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                        farmer.associated_with_fpo 
+                        farmer.associatedWithFPO 
                           ? 'bg-blue-100 text-blue-800' 
                           : 'bg-gray-100 text-gray-800'
                       }`}>
-                        {farmer.associated_with_fpo ? 'Yes' : 'No'}
+                        {farmer.associatedWithFPO ? 'Yes' : 'No'}
                       </span>
                     </td>
                   </tr>
