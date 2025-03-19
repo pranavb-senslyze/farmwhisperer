@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { FilterParams } from '../types';
 import { filterOptions } from '../utils/mockData';
 import { Filter, X, ChevronDown, ChevronUp } from 'lucide-react';
@@ -490,3 +489,4 @@ const FilterSelect: React.FC<FilterSelectProps> = ({
 };
 
 export default FilterPanel;
+
