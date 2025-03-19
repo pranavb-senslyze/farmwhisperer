@@ -47,19 +47,19 @@ const FarmerCard: React.FC<FarmerCardProps> = ({ farmer }) => {
                 <div className="flex-shrink-0 w-4 h-4 flex items-center justify-center">
                   <span className="w-2 h-2 bg-farm-orange rounded-full"></span>
                 </div>
-                <span className="text-sm">{farmer.religion}</span>
+                <span className="text-sm">{farmer.religion || 'Not specified'}</span>
               </div>
               <div className="flex items-center space-x-2 text-gray-700 mt-1">
                 <div className="flex-shrink-0 w-4 h-4 flex items-center justify-center">
                   <span className="w-2 h-2 bg-farm-blue rounded-full"></span>
                 </div>
-                <span className="text-sm">{farmer.caste_category}</span>
+                <span className="text-sm">{farmer.caste_category || 'Not specified'}</span>
               </div>
               <div className="flex items-center space-x-2 text-gray-700 mt-1">
                 <div className="flex-shrink-0 w-4 h-4 flex items-center justify-center">
                   <span className="w-2 h-2 bg-farm-yellow rounded-full"></span>
                 </div>
-                <span className="text-sm">{farmer.marital_status}</span>
+                <span className="text-sm">{farmer.marital_status || 'Not specified'}</span>
               </div>
             </div>
           </div>
@@ -108,7 +108,7 @@ const FarmerCard: React.FC<FarmerCardProps> = ({ farmer }) => {
           <div className="mt-4 pt-4 border-t">
             <div className="flex items-center">
               <Users className="h-4 w-4 text-gray-400 mr-2" />
-              <span className="text-sm font-medium">Associated with {farmer.fpo_name}</span>
+              <span className="text-sm font-medium">Associated with {farmer.fpo_name || 'FPO'}</span>
             </div>
           </div>
         )}
