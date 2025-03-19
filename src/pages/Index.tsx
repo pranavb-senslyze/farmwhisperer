@@ -1,12 +1,91 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useState, useEffect } from 'react';
+import SearchBar from '../components/SearchBar';
+import FilterPanel from '../components/FilterPanel';
+import ResultsTable from '../components/ResultsTable';
+import { useSearch } from '../hooks/useSearch';
 
 const Index = () => {
+  const {
+    query,
+    setQuery,
+    filters,
+    updateFilters,
+    results,
+    loading,
+    sortConfig,
+    requestSort,
+    pagination,
+    changePage,
+    changeItemsPerPage,
+    totalResults
+  } = useSearch();
+
+  const [showIntro, setShowIntro] = useState(true);
+
+  // Hide intro after delay or on search
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowIntro(false);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (query) {
+      setShowIntro(false);
+    }
+  }, [query]);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-[#F8FAFC] px-4 py-12">
+      <div className="max-w-4xl mx-auto mb-12">
+        <div className={`transition-all duration-700 ease-in-out ${
+          showIntro ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-16 pointer-events-none absolute'
+        }`}>
+          <h1 className="text-4xl font-light tracking-tight text-gray-900 text-center mb-3">
+            Farm Data Query System
+          </h1>
+          <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto mb-8">
+            Search for farmers using natural language queries like "Show me all farmers in Nagpur who grow vegetables and have irrigation facilities"
+          </p>
+        </div>
+        
+        <div className={`transition-all duration-500 ${
+          showIntro ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
+        }`}>
+          <h1 className="text-2xl font-medium text-gray-900 mb-1">
+            Farm Data Query
+          </h1>
+          <p className="text-gray-600 mb-6">
+            Search for farmers using natural language
+          </p>
+        </div>
       </div>
+      
+      <SearchBar 
+        query={query} 
+        setQuery={setQuery} 
+        loading={loading} 
+      />
+      
+      <FilterPanel 
+        filters={filters} 
+        updateFilters={updateFilters} 
+        totalResults={totalResults}
+      />
+      
+      <ResultsTable 
+        results={results}
+        loading={loading}
+        sortConfig={sortConfig}
+        requestSort={requestSort}
+        pagination={pagination}
+        changePage={changePage}
+        changeItemsPerPage={changeItemsPerPage}
+        totalResults={totalResults}
+      />
     </div>
   );
 };
