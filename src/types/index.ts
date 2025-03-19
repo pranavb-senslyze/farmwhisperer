@@ -1,21 +1,23 @@
 
 export type Farmer = {
   id: string;
-  name: string;
+  first_name: string;
+  last_name: string;
+  name?: string; // Virtual field that will be computed
   contact: string;
   gender: 'Male' | 'Female' | 'Other';
   age: number;
   district: string;
   state: string;
   religion: string;
-  casteCategory: string;
-  maritalStatus: string;
-  landOwned: number; // in acres
-  cropTypes: string[];
+  caste_category: string;
+  marital_status: string;
+  land_owned: number; // in acres
+  crop_types: string[];
   crops: string[];
-  irrigationFacility: boolean;
-  associatedWithFPO: boolean;
-  fpoName?: string;
+  irrigation_facility: boolean;
+  associated_with_fpo: boolean;
+  fpo_name?: string;
   source: string;
 };
 
@@ -26,18 +28,18 @@ export type FilterParams = {
     gender?: string;
     age?: { min?: number; max?: number };
     religion?: string;
-    casteCategory?: string;
-    maritalStatus?: string;
+    caste_category?: string;
+    marital_status?: string;
   };
   crop_data?: {
-    cropTypes?: string[];
+    crop_types?: string[];
     crops?: string[];
-    irrigationFacility?: boolean;
-    landOwned?: { min?: number; max?: number };
+    irrigation_facility?: boolean;
+    land_owned?: { min?: number; max?: number };
   };
   organization?: {
-    associatedWithFPO?: boolean;
-    fpoName?: string;
+    associated_with_fpo?: boolean;
+    fpo_name?: string;
   };
   source?: {
     name?: string;

@@ -24,6 +24,69 @@ export type Database = {
         }
         Relationships: []
       }
+      farmers: {
+        Row: {
+          age: number
+          associated_with_fpo: boolean
+          caste_category: string | null
+          contact: string
+          crop_types: string[]
+          crops: string[]
+          district: string
+          first_name: string
+          fpo_name: string | null
+          gender: string | null
+          id: number
+          irrigation_facility: boolean
+          land_owned: number
+          last_name: string
+          marital_status: string | null
+          religion: string | null
+          source: string
+          state: string
+        }
+        Insert: {
+          age: number
+          associated_with_fpo?: boolean
+          caste_category?: string | null
+          contact: string
+          crop_types: string[]
+          crops: string[]
+          district: string
+          first_name: string
+          fpo_name?: string | null
+          gender?: string | null
+          id?: number
+          irrigation_facility?: boolean
+          land_owned: number
+          last_name: string
+          marital_status?: string | null
+          religion?: string | null
+          source: string
+          state: string
+        }
+        Update: {
+          age?: number
+          associated_with_fpo?: boolean
+          caste_category?: string | null
+          contact?: string
+          crop_types?: string[]
+          crops?: string[]
+          district?: string
+          first_name?: string
+          fpo_name?: string | null
+          gender?: string | null
+          id?: number
+          irrigation_facility?: boolean
+          land_owned?: number
+          last_name?: string
+          marital_status?: string | null
+          religion?: string | null
+          source?: string
+          state?: string
+        }
+        Relationships: []
+      }
       lists: {
         Row: {
           id: number
